@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diestro</title>
+<meta name="description" content="Un reto de Diestro: las mismas manos de blackjack para todos.">
+<meta name="theme-color" content="#151514">
+<link rel="icon" href="/diestro-legal/icono.png">
+<link rel="apple-touch-icon" href="/diestro-legal/icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/diestro-legal/estilo.css">
+</head>
+<body class="">
+<header class="barra">
+  <a class="marca" href="/diestro-legal/"><img src="/diestro-legal/icono.png" alt="" width="32" height="32">Diestro</a>
+  <nav><a href="/diestro-legal/">Inicio</a><a href="/diestro-legal/soporte/">Soporte</a><a href="/diestro-legal/terminos/">Términos</a><a href="/diestro-legal/privacidad/">Privacidad</a></nav>
+</header>
+<main>
+
+<article class="texto" id="reto">
+<h1>Página no encontrada</h1>
+<p class="entrada">Esta dirección no existe. Vuelve al <a href="/diestro-legal/">inicio de Diestro</a>.</p>
+</article>
+<script>
+(function () {
+  var m = location.pathname.match(/\/reto\/(\d{8})\/?$/);
+  if (!m) return;
+  var dia = m[1];
+  var r = (new URLSearchParams(location.search).get('r') || '').match(/^(\d{1,2})-(\d{1,2})-(\d{1,4})$/);
+  var meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  var fecha = Number(dia.slice(6)) + ' de ' + (meses[Number(dia.slice(4, 6)) - 1] || '');
+  var tiempo = r ? Math.floor(r[3] / 60) + ':' + String(r[3] % 60).padStart(2, '0') : '';
+  var app = 'diestro://reto/' + dia + (r ? '?r=' + r[0] : '');
+  document.title = 'Te retaron · Diestro';
+  document.getElementById('reto').innerHTML =
+    '<h1>Te retaron</h1>' +
+    '<p class="entrada">Reto del ' + fecha + ': las mismas manos de blackjack para todos.' +
+    (r ? ' Tu amigo hizo ' + r[1] + ' de ' + r[2] + ' a la primera, en ' + tiempo + '.' : '') + '</p>' +
+    '<p><a class="tarjeta" href="' + app + '"><span>Abrir el reto en Diestro</span><small>Si ya tienes la app en tu iPhone</small></a></p>' +
+    '<p>Diestro está en prueba (beta) para iPhone. Si todavía no la tienes, pide una invitación a <a href="mailto:soportediestro@gmail.com?subject=Quiero%20probar%20Diestro">soportediestro@gmail.com</a>.</p>' +
+    '<p class="tenue">Diestro es un simulador para aprender: sin apuestas con dinero y sin premios. Solo para mayores de 18 años.</p>';
+})();
+</script>
+
+</main>
+<footer class="pie">
+  <div class="filete" aria-hidden="true"><span></span></div>
+  <p>Diestro es un simulador para aprender. Sin apuestas con dinero real y sin premios. Solo para mayores de 18 años.</p>
+  <p>Si el juego te está costando más de lo que quieres: <a href="tel:8009112000">Línea de la Vida, 800 911 2000</a>, gratis, las 24 horas.</p>
+  <p class="tenue">Emilio González García · <a href="mailto:soportediestro@gmail.com">soportediestro@gmail.com</a></p>
+</footer>
+</body>
+</html>
